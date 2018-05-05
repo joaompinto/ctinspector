@@ -1,0 +1,34 @@
+= Motivation for the "Container-Trust" utility
+João Pinto <lamego.pinto@gmail.com>
+v1.0, 3 May 2018: Initial release
+:showtitlepage:
+:notitle:
+:noheader:
+:nofooter:
+
+== Introduction
+Linux _Containers_ technology has reached production status for some large solutions. One of the core advantages of _containers_ can also be one of it's largest challenges in the enterprise world: portability. Portability means you may be transferring binary images across multiple networks/systems/vendors. At the end of the chain, in production, you maybe be running your  applications from artifacts whose authors and maintainers may be hard do trace. In order to have a secure container environment, having properly maintained, tested, and updated software components it's a fundamental requirement.
+
+== Background
+Most Linux distributions have decades of experience with distributed software development, packaging guidelines, digital signed packages, trusted keys, etc. Container images, and more specifically, docker images, because of their OS abstraction and flexibility concept, do not use such facilities. As such, when you get an "Ubuntu" docker image, you have no docker native capability to test if it was actually provided by Canonical, or if it's content is actually based on Ubuntu's packages from it's main (supported) repository. The standard level of security that you have from install ISOs (which have GPG signatures), and from GPG signed packages and repositories, can be lost when switching to containers.
+
+Docker does support https://docs.docker.com/engine/security/trust/content_trust/[Content Trust], but it is disabled by default. When enabled, you grant trust control to the repository maintainers, which is better than the default, but still not optimal. Most likely, people pushing the images into such registries, are not the actual maintainers of a significant part of it's content.
+
+== Theory
+A large portion of the docker images, regardless of it's base registry, are based on upstream Linux distributions, whose package maintainability and security status is easy to check. Unless your building pipeline enforces _«not just recommend»_ image content authorization/traceability on every artifact entry point, you SHOULD validate images/containers content, with it's original providers.
+
+== Existing solutions
+* `Open Source` https://github.com/coreos/clair[Clair] - is a large scale container repository oriented tool, does static analysis of vulnerabilities based on vendor's published security info.
+
+* `Comercial` https://www.aquasec.com/[AquaSec] does much more than vulnerability scanning, from network segmentation to extra auditing capabilities.
+
+== Procedure
+In order to address a more heterogeneous artifact/image building/delivery environment, a tool should be available to check an image against it's upstream security/stability fixes.
+
+== Workplan
+* Develop python metadata drivers, taking https://github.com/coreos/clair/blob/master/Documentation/drivers-and-data-sources.md [clair's coverage] as a solid reference
+* Develop an utility that leverages https://github.com/docker/docker-py[Docker SDK for Python] to extract an image content and scan it with the apporivate driver
+* Create a summary report from the image scan:
+** Container Security Scoring-  https://access.redhat.com/blogs/product-security/posts/container-security-scoring[RedHat's reference]
+** List _unmanaged_ artifacts
+
