@@ -5,5 +5,14 @@
         "latex",
         "plaintext",
         "asciidoc"
-    ]
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/*.egg-info": true
+    }
 }

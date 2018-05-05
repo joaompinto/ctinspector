@@ -8,8 +8,12 @@ def print_error(message):
     return cprint(message, 'red', attrs=['bold'], file=sys.stderr)
 
 
-def print_info(message):
-    return cprint(message, 'cyan')
+def print_info(*args):
+    assert args
+    if len(args) > 1:
+        print(args[0], info(' '.join((args[1:]))))
+    else:
+        cprint(args[0], 'cyan')
 
 
 def print_success(message):

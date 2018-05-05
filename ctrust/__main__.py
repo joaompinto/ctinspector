@@ -22,7 +22,6 @@ from ctrust import version
 
 def main():
     init()
-    #  client = docker.from_env()
     arguments = docopt(__doc__, version='ctrust %s' % version())
     if arguments['image']:
         image_name = arguments['<image_name>']
