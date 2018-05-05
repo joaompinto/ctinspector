@@ -40,5 +40,5 @@ setup(
     url='https://github.com/joaompinto/'+name,
     packages=find_packages(),
     include_package_data=True,
-    entry_points={'console_scripts': [name +' = ' + name + '.__main__:main']}
+    entry_points={'console_scripts':[name + ' = ' + name + '.__main__:main']}
 )

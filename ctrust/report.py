@@ -1,7 +1,9 @@
+from __future__ import print_function
+
+
 def image(image_name):
-    print("image")
-    pass
+    print(image_name)
+
 
 def container(container_id):
-    print("container")
-    pass
+    print(container_id)
