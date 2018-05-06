@@ -12,8 +12,8 @@ from os.path import join
 
 name = "ctinspector"
 
-desc = "Show content trust information for docker images"
-long_desc = "Shows detailed trust information for docker images"
+desc = "Show detailed information for docker images"
+long_desc = "Shows detailed information for docker images"
 
 
 classifiers = '''
