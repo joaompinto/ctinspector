@@ -13,7 +13,7 @@ def image_info(image_name):
         print("Image %s was not found, you can use %s" % (info(image_name), info("--pull")))
         exit(2)
     image_path = ctinspector.image.extract(image)
-    ctinspector.layer.show_info(image_path)
+    ctinspector.image.show_info(image_path)
 
 def container_info(container_id):
     print(container_id)

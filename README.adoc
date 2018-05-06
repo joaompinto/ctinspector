@@ -15,7 +15,7 @@ You must have Docker 1.13.1 or later running on your system.
 === Installing
 
 ```bash
-pip install ctinspector
+sudo pip install ctinspector
 ```
 
 === Running
