@@ -10,7 +10,7 @@ to install this package.
 from setuptools import setup, find_packages
 from os.path import join
 
-name = "ctrust"
+name = "ctinspector"
 
 desc = "Show content trust information for docker images"
 long_desc = "Shows detailed trust information for docker images"

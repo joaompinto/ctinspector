@@ -7,7 +7,7 @@ from tempfile import gettempdir, NamedTemporaryFile, mkdtemp
 
 
 def extract(image):
-    image_cache_prefix = join(gettempdir(), "ctrust", "image-cache")
+    image_cache_prefix = join(gettempdir(), "ctinspector", "image-cache")
     image_cache_path = join(image_cache_prefix, image.id)
     if not exists(image_cache_prefix):
         makedirs(image_cache_prefix, 0o700)

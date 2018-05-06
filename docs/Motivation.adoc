@@ -1,4 +1,4 @@
-= Motivation for the "Container-Trust" utility
+= Motivation for Container Inspector
 João Pinto <lamego.pinto@gmail.com>
 v1.0, 3 May 2018: Initial release
 :showtitlepage:
