@@ -25,10 +25,10 @@ def main():
     arguments = docopt(__doc__, version='ctrust %s' % version())
     if arguments['image']:
         image_name = arguments['<image_name>']
-        report.image(image_name)
+        report.image_info(image_name)
     if arguments['container']:
         container_id = arguments['<container_id>']
-        report.container(container_id)
+        report.container_info(container_id)
 
 
 if __name__ == "__main__":

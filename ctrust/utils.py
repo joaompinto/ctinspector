@@ -1,11 +1,25 @@
-import os
+from __future__ import print_function
+from ctrust.colorhelper import print_info, print_header, info, info_header, term_columns
 
-
-def get_status_output(cmd):
-    """Return (status, output) of executing cmd in a shell."""
-    pipe = os.popen('{ ' + cmd + '; } 2>&1', 'r')
-    text = pipe.read()
-    sts = pipe.close()
-    if sts is None:
-        sts = 0
-    return sts, text
+def print_list(label, items):
+    if not items:
+        return
+    print_header("_" * term_columns())
+    print_header(label)
+    if isinstance(items, (list, tuple)):
+        for item in items:
+            print_info("\t"+item)
+    if isinstance(items, dict):
+        for key, value in items.items():
+            if value:
+                if isinstance(value, str):
+                    print('{0:>5}: {1}'.format(key, info(value)))
+                if isinstance(value, list):
+                    print('{0:>15}:'.format(key))
+                    for value_item in value:
+                        print('{0:>15}{1}'.format('', info(value_item)))
+                if isinstance(value, dict):
+                    print('{0:>15}:'.format(key))
+                    for dict_key, dict_value in value.items():
+                        print(15*' '+'{0:>15}: {1}'.format(info_header(dict_key), info(dict_value)))
+    print_header("_" * term_columns())
