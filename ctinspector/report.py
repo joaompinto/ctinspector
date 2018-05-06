@@ -10,7 +10,7 @@ def image_info(image_name):
     try:
         image = docker_client.images.get(image_name)
     except docker.errors.ImageNotFound:
-        print("Image %s was not found, you can use %s" % (info(image_name), info("--pull")))
+        print("Image %s was not found, you can use:\ndocker pull %s" % (info(image_name), info(image_name)))
         exit(2)
     image_path = ctinspector.image.extract(image)
     ctinspector.image.show_info(image_path)

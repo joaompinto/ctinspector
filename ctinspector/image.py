@@ -38,3 +38,10 @@ def show_info(image_content_path):
             original_cmd = manifest_item_config['config']['Cmd'][:]
             manifest_item_config['config']['Cmd'] = ' '.join(original_cmd)
             print_list("Config", manifest_item_config['config'])
+            created_by_list = []
+            for history in manifest_item_config['history']:
+                for created_by in history['created_by'].split("\t"):
+                    created_by = created_by.strip("\n")
+                    if created_by:
+                        created_by_list.append(created_by)
+            print_list("History", created_by_list)
