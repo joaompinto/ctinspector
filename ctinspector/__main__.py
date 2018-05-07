@@ -13,7 +13,6 @@ from os.path import join, dirname, realpath
 from colorama import init
 from ctinspector import report
 
-
 # Make sure we use the source directory for imports when running during development
 script_dir = join(dirname(realpath(__file__)), '..')
 sys.path.insert(0, script_dir)

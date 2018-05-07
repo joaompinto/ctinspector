@@ -1,7 +1,8 @@
 # Changelog
 
-## 0.0.2 (2018-05-XX)
+## 0.0.2 (2018-05-07)
 
 ### Image info
 
-* Added "History" section
+* Added layer information with os detection
+* Added build history information
